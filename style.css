@@ -1,0 +1,378 @@
+/* ================= BODY ================= */
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  min-height: 100vh;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ================= MAIN CONTAINER ================= */
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  padding: 25px;
+  border-radius: 20px;
+  z-index: 2;
+  isolation: isolate;
+}
+
+/* ================= TEXT ================= */
+
+h1 {
+  font-family: 'Dancing Script', cursive;
+  color: white;
+  font-size: 2rem;
+}
+
+p {
+  color: white;
+}
+
+/* ================= BUTTON ================= */
+
+button {
+  padding: 10px 18px;
+  margin: 8px;
+  border: none;
+  border-radius: 30px;
+  background: white;
+  color: #ff4e7a;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.08);
+}
+
+/* ================= STAGES ================= */
+
+.stage {
+  display: none;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.stage.active {
+  display: block;
+  opacity: 1;
+}
+
+/* ================= PROGRESS ================= */
+
+.progress-wrapper {
+  margin-bottom: 20px;
+}
+
+#stageText {
+  color: white;
+  font-size: 14px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 25%;
+  background: white;
+  transition: 0.5s;
+}
+
+/* ================= XO BOARD ================= */
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.cell {
+  background: white;
+  color: #ff4e7a;
+  font-size: 2rem;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+/* ================= Q&A ================= */
+
+.qa-question {
+  font-size: 1.4rem;
+  color: #ff4e7a;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 12px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.correct {
+  background: #4CAF50 !important;
+  color: white !important;
+}
+
+.wrong {
+  background: #ff4e7a !important;
+  color: white !important;
+  animation: shake 0.4s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  50% { transform: translateX(6px); }
+  75% { transform: translateX(-6px); }
+  100% { transform: translateX(0); }
+}
+
+/* ================= HEART GAME ================= */
+
+.heart-game {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.falling {
+  position: absolute;
+  font-size: 24px;
+  cursor: pointer;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  from { transform: translateY(-50px); }
+  to { transform: translateY(350px); }
+}
+
+/* ================= FLOATING HEARTS ================= */
+
+.bg-hearts {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.bg-heart {
+  position: absolute;
+  bottom: -20px;
+  opacity: 0.4;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-110vh); }
+}
+
+/* ================= LONG DISTANCE BACKGROUND ================= */
+
+.ld-bg {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.character {
+  position: absolute;
+  bottom: 0;
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: floatPerson 4s ease-in-out infinite;
+}
+
+.girl { left: 50px; }
+.boy { right: 50px; }
+
+.head {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.girl .head { background: #ff6f9f; }
+.boy .head { background: #4da6ff; }
+
+.body {
+  width: 42px;
+  height: 60px;
+  border-radius: 20px;
+  margin-top: 4px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.girl .body { background: #ff4f81; }
+.boy .body { background: #4da6ff; }
+
+.girl .phone {
+  width: 8px;
+  height: 16px;
+  background: white;
+  border-radius: 3px;
+  position: absolute;
+  right: -6px;
+  top: 40px;
+}
+
+.boy .phone {
+  width: 8px;
+  height: 16px;
+  background: white;
+  border-radius: 3px;
+  position: absolute;
+  left: -6px;
+  top: 40px;
+}
+
+.bubble {
+  position: absolute;
+  bottom: 75px;
+  background: white;
+  padding: 5px 10px;
+  border-radius: 18px;
+  font-size: 11px;
+  opacity: 0.9;
+}
+
+.girl .bubble {
+  left: 60px;
+  color: #ff6f9f;
+}
+
+.boy .bubble {
+  right: 60px;
+  color: #4da6ff;
+}
+
+.dots::after {
+  content: "...";
+  animation: blink 1.3s infinite;
+}
+
+@keyframes blink {
+  0%,100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes floatPerson {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Traveling Heart */
+
+.love-travel {
+  position: absolute;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  animation: moveLove 6s linear infinite;
+}
+
+.love-travel::after { content: "💗"; }
+
+@keyframes moveLove {
+  0% { transform: translateX(-50%) scale(0.8); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateX(-50%) scale(1.1); opacity: 0; }
+}
+
+/* ================= FINAL FULLSCREEN ================= */
+
+#finalScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 999;
+  animation: fadeInFinal 1.2s ease forwards, pulseBg 6s ease-in-out infinite;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.final-content {
+  max-width: 650px;
+  color: white;
+}
+
+.final-content h1 {
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  margin-bottom: 20px;
+}
+
+.final-content p {
+  font-size: clamp(1rem, 3.5vw, 1.2rem);
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+/* Final floating hearts */
+
+.final-heart {
+  position: absolute;
+  bottom: -20px;
+  font-size: 20px;
+  opacity: 0.5;
+  animation: finalFloat linear infinite;
+}
+
+@keyframes finalFloat {
+  0% { transform: translateY(0); opacity: 0; }
+  20% { opacity: 0.7; }
+  100% { transform: translateY(-110vh); opacity: 0; }
+}
+
+@keyframes fadeInFinal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pulseBg {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(1.08); }
+  100% { filter: brightness(1); }
+}
