@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Someone Special ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Long Distance Background -->
+<div class="ld-bg">
+  <div class="character girl">
+    <div class="head"></div>
+    <div class="body"></div>
+    <div class="phone"></div>
+    <div class="bubble left">Typing<span class="dots"></span></div>
+  </div>
+
+  <div class="character boy">
+    <div class="head"></div>
+    <div class="body"></div>
+    <div class="phone"></div>
+    <div class="bubble right">Typing<span class="dots"></span></div>
+  </div>
+  <div class="love-travel"></div>
+</div>
+
+<div class="bg-hearts"></div>
+
+<div class="container">
+
+<div class="progress-wrapper">
+<p id="stageText">Stage 1 / 4</p>
+<div class="progress-bar">
+<div class="progress-fill" id="progressFill"></div>
+</div>
+</div>
+
+<section id="stage1" class="stage active">
+<h1>Hey Srushti ❤️</h1>
+<p>Here’s a small game for you 😏</p>
+<button onclick="nextStage(2)">Start</button>
+</section>
+
+<section id="stage2" class="stage">
+<h1>Tic Tac Toe 💕</h1>
+<div class="board" id="board"></div>
+<p id="gameStatus"></p>
+<button onclick="resetGame()">Reset</button>
+<button id="toQA" onclick="nextStage(3)" style="display:none;">Continue ❤️</button>
+</section>
+
+<section id="stage3" class="stage">
+<h1>Next Challenge 😌</h1>
+<p>Let’s see how well you know me...</p>
+<button onclick="startQA()">Start</button>
+</section>
+
+<section id="stage4" class="stage">
+<h1>How Well Do You Know Me?</h1>
+<h2 id="question" class="qa-question"></h2>
+<div id="options"></div>
+<p id="qaResult"></p>
+</section>
+
+<section id="stage5" class="stage">
+<h1>Catch My Love 💖</h1>
+<p>Score: <span id="heartScore">0</span> / 10</p>
+<div class="heart-game" id="heartGame"></div>
+</section>
+
+<section id="stage6" class="stage">
+<h1>Well Done 💖</h1>
+<p>Are you ready to go to the next stage?</p>
+<button onclick="nextStage(7)">Yes 😌</button>
+<button onclick="scaredMessage(6)">No 😏</button>
+<p id="scare6"></p>
+</section>
+
+<section id="stage7" class="stage">
+<h1>Wait... 😈</h1>
+<p>Are you really sure?</p>
+<button onclick="nextStage(8)">Yes I am sure 😌</button>
+<button onclick="scaredMessage(7)">No 😂</button>
+<p id="scare7"></p>
+</section>
+
+<section id="stage8" class="stage">
+<h1>Last Chance 😏</h1>
+<p>If you continue... there is no turning back.</p>
+<button onclick="nextStage(9)">YESSS 💖</button>
+<button onclick="scaredMessage(8)">Maybe not 😬</button>
+<p id="scare8"></p>
+</section>
+
+<section id="stage9" class="stage">
+<h1>One Last Question 🥺</h1>
+<p>Do you love me?</p>
+<button onclick="showFinal()">Yes ❤️</button>
+<button onclick="showFinal()">Obviously 😌</button>
+</section>
+
+</div>
+
+<!-- Final Fullscreen -->
+<div id="finalScreen" style="display:none;">
+  <div class="final-content">
+    <h1>For You 💖</h1>
+    <p>
+The distance between us is just space.
+It has never been separation.
+
+Because no matter how far we are,
+my heart finds its way back to you every single time.
+
+You are not just someone I love.
+You are my comfort, my chaos, my peace.
+
+And if I had to choose again…
+I would still choose you.
+Every time. Always. ❤️
+    </p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
