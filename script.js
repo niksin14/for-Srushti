@@ -175,71 +175,74 @@ function answer(i,btn){
   }
 }
 
+
+
 /* ================= HEART GAME ================= */
 
-let score=0, interval=null, missed=0;
+let score = 0;
+let interval = null;
 
 function startHeartGame(){
   clearInterval(interval);
 
-  score=0;
-  missed=0;
-  document.getElementById("heartScore").innerText=score;
+  score = 0;
+  document.getElementById("heartScore").innerText = score;
 
   nextStage(5);
 
-  let area=document.getElementById("heartGame");
-  area.innerHTML="";
+  let area = document.getElementById("heartGame");
+  area.innerHTML = "";
 
   showHeartInstruction();
 }
 
 function showHeartInstruction(){
-  let area=document.getElementById("heartGame");
+  let area = document.getElementById("heartGame");
 
-  let overlay=document.createElement("div");
-  overlay.style.position="absolute";
-  overlay.style.top="0";
-  overlay.style.left="0";
-  overlay.style.width="100%";
-  overlay.style.height="100%";
-  overlay.style.display="flex";
-  overlay.style.justifyContent="center";
-  overlay.style.alignItems="center";
-  overlay.style.borderRadius="15px";
-  overlay.style.background="linear-gradient(135deg,#ff9a9e,#fad0c4)";
-  overlay.style.zIndex="10";
+  let overlay = document.createElement("div");
+  overlay.style.position = "absolute";
+  overlay.style.top = "0";
+  overlay.style.left = "0";
+  overlay.style.width = "100%";
+  overlay.style.height = "100%";
+  overlay.style.display = "flex";
+  overlay.style.justifyContent = "center";
+  overlay.style.alignItems = "center";
+  overlay.style.borderRadius = "15px";
+  overlay.style.background = "linear-gradient(135deg,#ff9a9e,#fad0c4)";
+  overlay.style.zIndex = "10";
 
-  overlay.innerHTML=`
+  overlay.innerHTML = `
     <div style="background:rgba(255,255,255,0.25);padding:20px;border-radius:20px;color:white;text-align:center;width:85%;">
       <h2>💖 Ready?</h2>
-      <p>Collect <b>10 hearts</b>. You can only miss 2 😏</p>
+      <p>Collect <b>10 hearts</b> to unlock the next stage.</p>
       <button id="startCatchBtn">Start Catching 💗</button>
     </div>
   `;
 
   area.appendChild(overlay);
 
-  document.getElementById("startCatchBtn").onclick=function(){
+  document.getElementById("startCatchBtn").onclick = function(){
     overlay.remove();
-    interval=setInterval(createHeart,700);
+    interval = setInterval(createHeart, 700);
   };
 }
 
 function createHeart(){
-  let area=document.getElementById("heartGame");
-  let h=document.createElement("div");
-  h.classList.add("falling");
-  h.innerText="💖";
-  h.style.left=Math.random()*90+"%";
-  h.style.animationDuration=(Math.random()*1.5+2)+"s";
+  let area = document.getElementById("heartGame");
 
-  h.onclick=function(){
+  let h = document.createElement("div");
+  h.classList.add("falling");
+  h.innerText = "💖";
+  h.style.left = Math.random() * 90 + "%";
+  h.style.animationDuration = (Math.random()*1.5 + 2) + "s";
+
+  h.onclick = function(){
     h.remove();
     score++;
-    document.getElementById("heartScore").innerText=score;
+    document.getElementById("heartScore").innerText = score;
 
-    if(score>=10){
+    if(score >= 10){
       clearInterval(interval);
       showHeartCompletion();
     }
@@ -247,35 +250,26 @@ function createHeart(){
 
   area.appendChild(h);
 
-  setTimeout(()=>{
-    if(document.body.contains(h)){
-      h.remove();
-      missed++;
-      if(missed>2){
-        clearInterval(interval);
-        showHeartFail();
-      }
-    }
-  },5000);
+  setTimeout(()=>h.remove(), 5000);
 }
 
 function showHeartCompletion(){
-  let area=document.getElementById("heartGame");
+  let area = document.getElementById("heartGame");
 
-  let overlay=document.createElement("div");
-  overlay.style.position="absolute";
-  overlay.style.top="0";
-  overlay.style.left="0";
-  overlay.style.width="100%";
-  overlay.style.height="100%";
-  overlay.style.display="flex";
-  overlay.style.justifyContent="center";
-  overlay.style.alignItems="center";
-  overlay.style.borderRadius="15px";
-  overlay.style.background="linear-gradient(135deg,#ff9a9e,#fad0c4)";
-  overlay.style.zIndex="20";
+  let overlay = document.createElement("div");
+  overlay.style.position = "absolute";
+  overlay.style.top = "0";
+  overlay.style.left = "0";
+  overlay.style.width = "100%";
+  overlay.style.height = "100%";
+  overlay.style.display = "flex";
+  overlay.style.justifyContent = "center";
+  overlay.style.alignItems = "center";
+  overlay.style.borderRadius = "15px";
+  overlay.style.background = "linear-gradient(135deg,#ff9a9e,#fad0c4)";
+  overlay.style.zIndex = "20";
 
-  overlay.innerHTML=`
+  overlay.innerHTML = `
     <div style="background:rgba(255,255,255,0.3);padding:25px;border-radius:20px;color:white;text-align:center;width:85%;">
       <h2>You caught all my love 💖</h2>
       <button id="continueAfterHeart">Continue 💗</button>
@@ -284,42 +278,12 @@ function showHeartCompletion(){
 
   area.appendChild(overlay);
 
-  document.getElementById("continueAfterHeart").onclick=function(){
+  document.getElementById("continueAfterHeart").onclick = function(){
     overlay.remove();
     nextStage(6);
   };
 }
 
-function showHeartFail(){
-  let area=document.getElementById("heartGame");
-
-  let overlay=document.createElement("div");
-  overlay.style.position="absolute";
-  overlay.style.top="0";
-  overlay.style.left="0";
-  overlay.style.width="100%";
-  overlay.style.height="100%";
-  overlay.style.display="flex";
-  overlay.style.justifyContent="center";
-  overlay.style.alignItems="center";
-  overlay.style.borderRadius="15px";
-  overlay.style.background="linear-gradient(135deg,#ff9a9e,#fad0c4)";
-  overlay.style.zIndex="20";
-
-  overlay.innerHTML=`
-    <div style="background:rgba(255,255,255,0.3);padding:25px;border-radius:20px;color:white;text-align:center;width:85%;">
-      <h2>You missed too much love 😏</h2>
-      <button id="restartHeartGame">Restart</button>
-    </div>
-  `;
-
-  area.appendChild(overlay);
-
-  document.getElementById("restartHeartGame").onclick=function(){
-    overlay.remove();
-    startHeartGame();
-  };
-}
 
 /* ================= CONFIRMATION ================= */
 
@@ -364,3 +328,4 @@ function createFinalHeart(){
   screen.appendChild(h);
   setTimeout(()=>h.remove(),8000);
 }
+
