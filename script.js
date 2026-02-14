@@ -231,7 +231,7 @@ function createHeart(){
   h.classList.add("falling");
   h.innerText="💖";
   h.style.left=Math.random()*90+"%";
-  h.style.animationDuration=(Math.random()*2+3)+"s";
+  h.style.animationDuration = (Math.random()*1.5+2)+"s";
 
   h.onclick=function(){
     h.remove();
@@ -341,5 +341,6 @@ function createFinalHeart(){
   screen.appendChild(h);
   setTimeout(()=>h.remove(),8000);
 }
+
 
 
