@@ -84,7 +84,7 @@ function resetGame(){
 const questions=[
 {q:"What is my favourite food?",o:["Chicken","Varan Batti","Puran Poli"],a:0},
 {q:"My favourite color?",o:["Green","Blue","White"],a:0},
-{q:"My favourite place to visit?",o:["Mountains","A peaceful place","Any other country"],a:1}
+{q:"My favourite place to visit?",o:["Beach","A peaceful place","Any other country"],a:1}
 ];
 
 let current=0;
@@ -299,3 +299,4 @@ function createFinalHeart(){
   screen.appendChild(h);
   setTimeout(()=>h.remove(),8000);
 }
+
